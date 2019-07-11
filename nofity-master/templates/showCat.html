@@ -1,0 +1,82 @@
+   <!DOCTYPE html>  
+    <html lang="en">  
+    <head>  
+        <meta charset="UTF-8">  
+        <title>Category Records</title>
+         {% load staticfiles %}  
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    </head>
+    <style>
+    table, th, td {
+  border: 1px solid darkslategrey;
+  border-collapse: collapse;
+}
+h1 {text-align: center;
+    color: #916C27;}
+table {
+    text-align: center;
+    width: 100%;
+}
+
+th {
+  height: 50px;
+}
+body {
+background-image : url("https://previews.123rf.com/images/svetlanacherruty/svetlanacherruty1709/svetlanacherruty170900079/86586093-office-workplace-with-laptop-cup-of-coffee-sketch-book-accessories-on-white-background-top-view-with.jpg");
+
+background-color: transparent;}
+
+    input[type=button] {
+ width:100px;
+ margin-left:5px;
+ cursor:pointer;
+ }
+        form {  background-color: rgba(216, 198, 94, 0.5);;
+  margin: 0 auto;
+  width: 1200px;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;}
+
+	</style>
+    <body background="//home/nesrine/Downloads/nofity-master/static/css/image.jpg" >
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <h1>Here is the list of categories</h1>
+        <input type="button" onclick='window.location.reload(false)' value="Refresh"/>
+<br>
+    <br><br>
+    <form>
+    <table class="table table-striped table-bordered table-sm">  
+        <thead class="thead-dark">  
+        <tr>  
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% for c in categories %}
+        <tr>
+            <td> <a href="/show" >{{ c.namec }}</a></td>
+
+
+            <td>
+                <a href="/editC/{{ c.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                <a href="/deleteC/{{ c.id }}" onclick="return confirm('Are you sure you want to delete this?')"
+>Delete</a>
+            </td>
+
+
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <center><a href="/cat" class="btn btn-primary">Add New category</a></center>
+    </form>
+    </body>  
+    </html>  

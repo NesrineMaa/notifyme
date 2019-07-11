@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>URLs</title>
+        {% load staticfiles %}
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+        <style>
+
+            input[type=submit] {
+ width:100px;
+ margin-left:5px;
+ cursor:pointer;
+ }
+            select {
+ margin-top:10px;
+ }
+  h1 {font-size:36px;
+             color: #916c27;
+
+            }
+
+
+  form {  background-color: rgba(216, 198, 94, 0.5);;
+  margin: 0 auto;
+  width: 400px;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;}
+
+
+            body {
+
+
+    background-image: url("https://previews.123rf.com/images/svetlanacherruty/svetlanacherruty1709/svetlanacherruty170900079/86586093-office-workplace-with-laptop-cup-of-coffee-sketch-book-accessories-on-white-background-top-view-with.jpg");
+
+    font:12px/1.4 Verdana,Arial;
+    /*background:#eee; height:100%; */
+    margin:25px 0; padding:0
+}
+
+h3 {font:24px Georgia,Verdana; margin:0;
+    text-align: center;
+    font-style: italic;
+
+        }
+h2 {font-size:12px; font-weight:normal; font-style:italic; margin:0 0 20px;     text-align: center;
+}
+div {    text-align: center;
+     font-size: 24px;
+}
+        </style>
+    </head>
+    <body>
+    <div> <center>
+        <br>
+        <br>
+                <h1>Add new Url </h1>
+
+    <form method="POST" class="post-form" action="/url">
+            {% csrf_token %}
+        <div class="container">
+    <br>
+        <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+
+        <h3>Enter Details</h3>
+        </div>
+      </div>
+
+            <br>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Url Name:</label>
+          <br>
+        <div class="col-sm-4">
+        <input type="text" name="nameurl" id="nameurl" required maxlength="20" value="{{ Url.nameurl }} "/>
+        </div>
+      </div>
+<br>
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Url:</label>
+            <br>
+        <div class="col-sm-4">
+        <input type="text" name="url" id="url" required maxlength="form20" value="{{ Url.url }} "/>
+        </div>
+      </div>
+
+
+        <div class="form-group row">
+            <select id="Category" name="Category">
+
+                 {% for c in categories %}
+       		        	 <option value="{{ c.id }}" selected="selected">{{ c.namec }}</option>
+
+                 {% endfor %}
+
+    		</select>
+
+
+        <div class="col-sm-4"> <br> <br>
+
+        <input type="submit" name="use_button" value="Insert" class="btn btn-primary">
+
+        </div>
+      </div>
+        </div>
+    </form>
+        </center>
+        </div>
+    </body>
+    </html>

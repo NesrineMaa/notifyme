@@ -1,0 +1,68 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Index</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+        <style>
+
+                   form {
+  margin: 0 auto;
+  width: 400px;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+            body {
+
+
+    background-image: url("//home/nesrine/Downloads/nofity-master/static/css/image.jpg");
+
+    font:12px/1.4 Verdana,Arial;
+    /*background:#eee; height:100%; */
+    margin:25px 0; padding:0
+}
+
+h3 {font:24px Georgia,Verdana; margin:0;
+    text-align: center;
+        }
+h2 {font-size:12px; font-weight:normal; font-style:italic; margin:0 0 20px;     text-align: center;
+}
+div {    text-align: center;
+     font-size: 24px;}
+        </style>
+
+    </head>
+    <body>
+    <center>
+            <h1>Update Details</h1>
+
+    <form method="POST" class="post-form" action="/editC/{{categories.id}}">
+            {% csrf_token %}
+        <div class="container">
+    <br>
+        <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Category Name:</label> <br>
+        <div class="col-sm-4">
+            <input type="text" name="namec" id="id_namec" required maxlength="100" value="{{ categories.namec }}" />
+        </div>
+      </div>
+
+        <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+            <br> <br>
+        <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      </div>
+        </div>
+    </form></center>
+    </body>
+    </html>

@@ -1,0 +1,75 @@
+  <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Index</title>
+        {% load staticfiles %}
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+        <style>
+            body {
+
+
+    background-image: url("//home/nesrine/Downloads/nofity-master/static/css/image.jpg");
+
+    font:12px/1.4 Verdana,Arial;
+    /*background:#eee; height:100%; */
+    margin:25px 0; padding:0
+}
+
+h3 {font:24px Georgia,Verdana; margin:0;
+    text-align: center;
+        }
+h2 {font-size:12px; font-weight:normal; font-style:italic; margin:0 0 20px;     text-align: center;
+}
+div {
+    text-align: center;
+    font-size: 24px;
+}
+        </style>
+
+
+    </head>
+    <body>
+    <form action="/deleteCat.html" class="post-form" method="POST">
+            {% csrf_token %}
+        <div class="container">
+    <br>
+        <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+        <h2>Delete category </h2>
+
+        </div>
+      </div>
+ <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Category:</label>  
+        <div class="col-sm-4"> 
+<select name="username" action="">
+ 
+    <option>--------category--------</option>
+
+ 
+</select>
+
+        </div>  
+      </div>  
+
+</select>
+
+        </div>
+      </div>
+
+      </div>
+        <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary"  >Submit</button>
+        </div>  
+      </div>  
+        </div>  
+    </form>  
+    </body>  
+    </html>  

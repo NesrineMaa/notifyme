@@ -1,0 +1,82 @@
+    <!DOCTYPE html>  
+    <html lang="en">  
+    <head>  
+        <meta charset="UTF-8">  
+        <title>Url Records</title>  
+         {% load staticfiles %}  
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    </head>
+    <style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+h1 {text-align: center;             color: #916c27;
+}
+table {
+    text-align: center;
+    width: 100%;
+}
+        form {  background-color: rgba(216, 198, 94, 0.5);
+  margin: 0 auto;
+  width: 1200px;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;}
+
+th {
+  height: 50px;
+}
+body {
+ font-family:"trebuchet ms",sans-serif;
+ font-size:90%;
+background-image : url("https://previews.123rf.com/images/svetlanacherruty/svetlanacherruty1709/svetlanacherruty170900079/86586093-office-workplace-with-laptop-cup-of-coffee-sketch-book-accessories-on-white-background-top-view-with.jpg");
+
+}
+
+
+	</style>
+    <body >
+     <br>
+        <br> <br>
+        <br> <br>
+        <br> <br>
+        <br>
+        <h1>Here is the list of URLs</h1>
+        <br>
+        <br>
+      <br>
+        <br>
+     <form>
+    <table class="table table-striped table-bordered table-sm">  
+        <thead class="thead-dark">  
+        <tr>  
+            <th>Name</th>
+            <th>Url</th>
+            <th>Category</th>
+            <th>Notifications</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% for u in urls %}
+        <tr>
+            <td>{{ u.nameurl }}</td>
+            <td><a href={{ u.url }}> {{ u.url }}</a></td>
+
+            <td>{{ u.cat }}</td>
+            <td>{{ u.Nb_notif }}</td>
+            <td>
+                <a href="/editURL/{{ u.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                <a href="/deleteURL/{{ u.id }}"  onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <center><a href="/url" class="btn btn-primary">Add New URL</a></center>
+     </form>
+    </body>
+    </html>
